@@ -1,0 +1,1406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Norr & Field — Home Goods</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FAF7F1;
+  --bg-elev: #FFFFFF;
+  --ink: #241F19;
+  --ink-soft: #6F6355;
+  --border: #E6DFD1;
+  --accent: #2F4538;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E1E9E0;
+  --rust: #A85C32;
+  --danger: #B3413A;
+  --danger-soft: #F5E4E1;
+  --success: #3C6E4E;
+  --success-soft: #E4EEE6;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 10px 30px -18px rgba(36, 31, 25, 0.35);
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1B1712;
+    --bg-elev: #24201A;
+    --ink: #F3EEE3;
+    --ink-soft: #B3A996;
+    --border: #3B342A;
+    --accent: #86AC91;
+    --accent-ink: #16241A;
+    --accent-soft: #2A362C;
+    --rust: #D68F63;
+    --danger: #E39089;
+    --danger-soft: #3A2624;
+    --success: #8FC5A2;
+    --success-soft: #223429;
+    --shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.55);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1B1712; --bg-elev: #24201A; --ink: #F3EEE3; --ink-soft: #B3A996;
+  --border: #3B342A; --accent: #86AC91; --accent-ink: #16241A; --accent-soft: #2A362C;
+  --rust: #D68F63; --danger: #E39089; --danger-soft: #3A2624; --success: #8FC5A2; --success-soft: #223429;
+  --shadow: 0 10px 30px -14px rgba(0, 0, 0, 0.55);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0 0 .5rem; }
+h1 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+h2 { font-size: clamp(1.3rem, 2vw, 1.7rem); }
+p { margin: 0 0 1rem; }
+.muted { color: var(--ink-soft); }
+.small-print { font-size: .82rem; }
+hr { border: none; border-top: 1px solid var(--border); margin: 1rem 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.shell { max-width: 1240px; margin: 0 auto; padding: 0 1.25rem; }
+.site-main { min-height: 60vh; }
+
+/* ---------- Header ---------- */
+.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky; top: 0; z-index: 30;
+}
+.header-row {
+  max-width: 1240px; margin: 0 auto; padding: .9rem 1.25rem;
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.wordmark { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; white-space: nowrap; }
+.wordmark span { color: var(--rust); }
+.wordmark.small { font-size: 1.1rem; margin-bottom: .5rem; display: inline-block; }
+.main-nav { display: flex; gap: 1.25rem; flex: 1; }
+.main-nav a { color: var(--ink-soft); padding: .3rem 0; border-bottom: 2px solid transparent; }
+.main-nav a.active, .main-nav a:hover { color: var(--ink); border-color: var(--accent); }
+.header-search { flex: 0 0 260px; }
+.header-search input {
+  width: 100%; padding: .55rem .85rem; border-radius: 999px; border: 1px solid var(--border);
+  background: var(--bg-elev); color: var(--ink); font: inherit;
+}
+.header-actions { display: flex; align-items: center; gap: .4rem; }
+.icon-btn {
+  background: none; border: none; cursor: pointer; padding: .45rem; border-radius: 999px;
+  color: var(--ink); display: inline-flex; align-items: center; justify-content: center; position: relative;
+}
+.icon-btn:hover { background: var(--accent-soft); }
+.icon-btn .ic svg { width: 21px; height: 21px; }
+.badge {
+  position: absolute; top: -2px; right: -2px; background: var(--rust); color: #fff;
+  font-size: .65rem; min-width: 16px; height: 16px; border-radius: 999px; display: flex;
+  align-items: center; justify-content: center; padding: 0 3px;
+}
+.account-menu { position: relative; }
+.dropdown {
+  position: absolute; right: 0; top: calc(100% + 8px); background: var(--bg-elev);
+  border: 1px solid var(--border); border-radius: var(--radius-sm); box-shadow: var(--shadow);
+  min-width: 200px; display: none; flex-direction: column; padding: .4rem; z-index: 40;
+}
+.dropdown.open { display: flex; }
+.dropdown a, .dropdown button {
+  padding: .55rem .7rem; border-radius: 6px; background: none; border: none; text-align: left;
+  font: inherit; color: var(--ink); cursor: pointer; width: 100%;
+}
+.dropdown a:hover, .dropdown button:hover { background: var(--accent-soft); }
+.dropdown-head { padding: .3rem .7rem .6rem; border-bottom: 1px solid var(--border); margin-bottom: .3rem; font-size: .85rem; }
+.only-mobile, .only-mobile-block { display: none; }
+
+.admin-subnav {
+  display: flex; gap: 1.25rem; padding: .7rem 1.25rem; background: var(--accent-soft);
+  border-bottom: 1px solid var(--border); overflow-x: auto;
+}
+.admin-subnav a { color: var(--ink-soft); white-space: nowrap; font-weight: 500; }
+.admin-subnav a.active { color: var(--ink); font-weight: 700; }
+.admin-subnav .back-to-store { margin-left: auto; }
+
+/* ---------- Buttons / form basics ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: .4rem;
+  padding: .7rem 1.3rem; border-radius: 999px; border: 1px solid transparent; cursor: pointer;
+  font: inherit; font-weight: 600; font-size: .92rem; transition: transform .12s ease, background .12s ease;
+}
+.btn:active { transform: scale(.98); }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { filter: brightness(1.06); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; }
+.btn-ghost { background: transparent; border-color: var(--border); color: var(--ink); }
+.btn-ghost:hover { background: var(--accent-soft); }
+.btn-small { padding: .4rem .85rem; font-size: .82rem; }
+.btn-block { width: 100%; }
+.link { color: var(--accent); font-weight: 600; cursor: pointer; background: none; border: none; font: inherit; }
+.link.danger { color: var(--danger); }
+.back-link { display: inline-block; margin-bottom: 1rem; }
+
+label { display: flex; flex-direction: column; gap: .35rem; font-size: .88rem; color: var(--ink-soft); margin-bottom: .9rem; }
+input, select, textarea {
+  font: inherit; padding: .65rem .8rem; border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--bg-elev); color: var(--ink);
+}
+input:disabled { opacity: .6; }
+.field-row { display: flex; gap: 1rem; }
+.field-row > label { flex: 1; }
+.radio-row { flex-direction: row; align-items: center; gap: .5rem; font-size: .95rem; color: var(--ink); }
+.select { cursor: pointer; }
+.select-small { padding: .4rem .5rem; font-size: .82rem; }
+
+/* ---------- Sections / hero ---------- */
+.section { padding: 3rem 0; }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.2rem; gap: 1rem; }
+.eyebrow-cat { color: var(--rust); font-weight: 600; font-size: .8rem; letter-spacing: .01em; }
+
+.hero {
+  display: grid; grid-template-columns: 1.1fr .9fr; gap: 2.5rem; align-items: center;
+  padding: 3rem 0 2rem;
+}
+.hero-copy h1 { margin-top: .4rem; }
+.hero-sub { max-width: 46ch; color: var(--ink-soft); font-size: 1.05rem; }
+.hero-actions { display: flex; gap: .9rem; flex-wrap: wrap; margin-top: 1.2rem; }
+.hero-art img { border-radius: var(--radius); width: 100%; aspect-ratio: 4/3; object-fit: cover; box-shadow: var(--shadow); }
+
+.category-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: .9rem; }
+.category-tile {
+  background: var(--tile); color: #fff; border-radius: var(--radius); aspect-ratio: 1.4/1;
+  display: flex; align-items: flex-end; padding: .8rem; font-weight: 600; font-family: var(--font-display);
+}
+
+/* ---------- Products ---------- */
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+.product-card {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.product-media { position: relative; aspect-ratio: 1/1; overflow: hidden; background: var(--accent-soft); }
+.product-media img { width: 100%; height: 100%; object-fit: cover; }
+.tag { position: absolute; top: .6rem; left: .6rem; font-size: .72rem; font-weight: 700; padding: .25rem .55rem; border-radius: 999px; }
+.tag-out { background: var(--danger-soft); color: var(--danger); }
+.product-info { padding: .9rem 1rem 1.05rem; display: flex; flex-direction: column; gap: .25rem; }
+.product-name { font-weight: 600; margin-bottom: .1rem; }
+.product-row { display: flex; align-items: center; justify-content: space-between; margin-top: .4rem; }
+.price { font-weight: 700; }
+
+.products-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.chip-row { display: flex; gap: .5rem; flex-wrap: wrap; }
+.chip {
+  padding: .45rem .9rem; border-radius: 999px; border: 1px solid var(--border); background: var(--bg-elev);
+  color: var(--ink-soft); font: inherit; font-size: .85rem; cursor: pointer;
+}
+.chip.active { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.result-count { margin: .3rem 0 1.2rem; }
+
+.product-detail .detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+.detail-media { border-radius: var(--radius); overflow: hidden; aspect-ratio: 1/1; }
+.detail-media img { width: 100%; height: 100%; object-fit: cover; }
+.detail-price { font-size: 1.6rem; font-weight: 700; font-family: var(--font-display); margin: .6rem 0; }
+.detail-desc { color: var(--ink-soft); max-width: 48ch; }
+.rating { display: flex; align-items: center; gap: .3rem; color: var(--rust); font-weight: 600; }
+.rating .ic svg { width: 15px; height: 15px; }
+.stock-line { font-weight: 600; color: var(--success); }
+.stock-low { color: var(--rust); }
+.stock-out { color: var(--danger); }
+.qty-form { display: flex; align-items: center; gap: 1rem; margin-top: 1.2rem; flex-wrap: wrap; }
+.qty-picker { display: inline-flex; align-items: center; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; }
+.qty-picker button { background: var(--bg-elev); border: none; width: 34px; height: 34px; cursor: pointer; font-size: 1.1rem; color: var(--ink); }
+.qty-picker input { border: none; width: 44px; text-align: center; padding: 0; -moz-appearance: textfield; }
+.qty-picker input::-webkit-outer-spin-button, .qty-picker input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.qty-picker.small { border: none; gap: .5rem; margin-top: .5rem; }
+.qty-picker.small button { width: 26px; height: 26px; border: 1px solid var(--border); border-radius: 999px; }
+
+/* ---------- Cart / checkout ---------- */
+.cart-grid, .checkout-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 2.5rem; align-items: start; }
+.cart-line { display: grid; grid-template-columns: 76px 1fr auto; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.cart-line img { width: 76px; height: 76px; object-fit: cover; border-radius: var(--radius-sm); }
+.cart-line-info { display: flex; flex-direction: column; gap: .15rem; }
+.cart-line-end { display: flex; flex-direction: column; align-items: flex-end; gap: .5rem; justify-content: space-between; }
+.order-summary {
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.3rem;
+  position: sticky; top: 90px;
+}
+.summary-row { display: flex; justify-content: space-between; padding: .3rem 0; font-size: .95rem; }
+.summary-row.total { font-weight: 700; font-size: 1.1rem; padding-top: .6rem; border-top: 1px solid var(--border); margin-top: .4rem; }
+.checkout-form { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+.checkout-form h2 { margin-top: 1.2rem; }
+.checkout-form h2:first-child { margin-top: 0; }
+
+/* ---------- Auth ---------- */
+.auth-page { display: flex; justify-content: center; }
+.auth-card { max-width: 420px; width: 100%; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+.auth-card.wide { max-width: 560px; }
+
+/* ---------- Orders ---------- */
+.order-list { display: flex; flex-direction: column; gap: .6rem; }
+.order-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: .9rem 1.1rem;
+}
+.status-pill { padding: .25rem .7rem; border-radius: 999px; font-size: .78rem; font-weight: 700; }
+.status-pending { background: var(--accent-soft); color: var(--accent); }
+.status-processing { background: #EAE3CF; color: #7A5E1E; }
+.status-shipped { background: #DCE6F0; color: #33587A; }
+.status-delivered { background: var(--success-soft); color: var(--success); }
+.status-cancelled { background: var(--danger-soft); color: var(--danger); }
+.order-detail-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; max-width: 640px; }
+.order-detail-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; }
+
+/* ---------- Admin ---------- */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.stat-card { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.2rem; display: flex; flex-direction: column; gap: .3rem; }
+.stat-label { color: var(--ink-soft); font-size: .85rem; }
+.stat-value { font-family: var(--font-display); font-size: 1.9rem; font-weight: 700; }
+.table-wrap { overflow-x: auto; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius); }
+.admin-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.admin-table th, .admin-table td { padding: .8rem 1rem; text-align: left; border-bottom: 1px solid var(--border); font-size: .92rem; }
+.admin-table th { color: var(--ink-soft); font-weight: 600; font-size: .8rem; text-transform: uppercase; letter-spacing: .03em; }
+.thumb { width: 42px; height: 42px; border-radius: 8px; object-fit: cover; }
+.row-actions { display: flex; gap: .3rem; }
+.row-actions .icon-btn.danger:hover { background: var(--danger-soft); color: var(--danger); }
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(20, 16, 12, 0.45); display: flex; align-items: center;
+  justify-content: center; padding: 1rem; z-index: 100;
+}
+.modal-card { background: var(--bg-elev); border-radius: var(--radius); padding: 1.6rem; max-width: 480px; width: 100%; max-height: 90vh; overflow-y: auto; box-shadow: var(--shadow); }
+.modal-actions { display: flex; justify-content: flex-end; gap: .7rem; margin-top: .5rem; }
+
+/* ---------- Empty state / toast ---------- */
+.empty-state { text-align: center; padding: 3.5rem 1rem; }
+.toast-host { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); z-index: 200; display: flex; flex-direction: column; gap: .5rem; align-items: center; }
+.toast {
+  background: var(--ink); color: var(--bg); padding: .7rem 1.1rem; border-radius: 999px; font-size: .88rem;
+  opacity: 0; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease; box-shadow: var(--shadow);
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast-success { background: var(--success); color: #fff; }
+.toast-error { background: var(--danger); color: #fff; }
+
+/* ---------- Footer ---------- */
+.site-footer { border-top: 1px solid var(--border); margin-top: 2rem; padding: 2.5rem 0 1.5rem; }
+.footer-grid { max-width: 1240px; margin: 0 auto; padding: 0 1.25rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 2rem; }
+.footer-grid h4 { margin: 0 0 .6rem; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; color: var(--ink-soft); }
+.footer-grid a { display: block; color: var(--ink-soft); padding: .2rem 0; }
+.footer-bottom { max-width: 1240px; margin: 1.5rem auto 0; padding: 1rem 1.25rem 0; border-top: 1px solid var(--border); font-size: .82rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+  .cart-grid, .checkout-grid { grid-template-columns: 1fr; }
+  .order-summary { position: static; }
+  .detail-grid { grid-template-columns: 1fr !important; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 700px) {
+  .header-search.only-desktop { display: none; }
+  .only-mobile { display: inline-flex; }
+  .only-mobile-block { display: block; padding: 0 1.25rem .8rem; }
+  .header-row { gap: .8rem; }
+  .main-nav {
+    position: fixed; top: 116px; left: 0; right: 0; bottom: 0; background: var(--bg); flex-direction: column;
+    padding: 1.2rem 1.25rem; gap: .3rem; transform: translateX(-100%); transition: transform .2s ease; z-index: 25;
+    overflow-y: auto;
+  }
+  .main-nav.open { transform: translateX(0); }
+  .main-nav a { padding: .8rem 0; border-bottom: 1px solid var(--border); }
+  .hero { grid-template-columns: 1fr; padding-top: 1.5rem; }
+  .hero-art { order: -1; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cart-line { grid-template-columns: 60px 1fr; }
+  .cart-line-end { grid-column: 1 / -1; flex-direction: row; justify-content: space-between; align-items: center; }
+}
+@media (max-width: 460px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: .7rem; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .section { padding: 2rem 0; }
+}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* =========================================================================
+   NORR & FIELD — demo e-commerce app
+   Everything below simulates a backend using localStorage so the whole
+   store works as a standalone static page. Every data function is written
+   as if it were an API call (NorrAPI.*) so it's a drop-in seam: swap the
+   body of each function for a real `fetch()` to a server and the rest of
+   the app does not need to change.
+   ========================================================================= */
+
+/* ---------------------------- Utilities -------------------------------- */
+const $  = (sel, el = document) => el.querySelector(sel);
+const $$ = (sel, el = document) => Array.from(el.querySelectorAll(sel));
+const fmt = (n) => '$' + Number(n).toFixed(2);
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const escapeHtml = (s) => String(s).replace(/[&<>"']/g, (c) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+}[c]));
+
+// DEMO-ONLY "hashing". Never do this in a real product — use bcrypt/argon2
+// server-side and never store or compare passwords in the browser at all.
+const demoHash = (s) => btoa(unescape(encodeURIComponent('norr::' + s)));
+
+function toast(msg, tone = 'default') {
+  const host = $('#toast-host');
+  const el = document.createElement('div');
+  el.className = 'toast toast-' + tone;
+  el.textContent = msg;
+  host.appendChild(el);
+  requestAnimationFrame(() => el.classList.add('show'));
+  setTimeout(() => {
+    el.classList.remove('show');
+    setTimeout(() => el.remove(), 250);
+  }, 2600);
+}
+
+function placeholderImage(name, hex) {
+  const letter = (name || '?').charAt(0).toUpperCase();
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'>
+    <rect width='400' height='400' fill='${hex}'/>
+    <circle cx='320' cy='70' r='90' fill='rgba(255,255,255,0.07)'/>
+    <circle cx='40' cy='370' r='120' fill='rgba(0,0,0,0.06)'/>
+    <text x='50%' y='53%' font-family='Fraunces, Georgia, serif' font-size='150'
+      fill='rgba(255,255,255,0.92)' text-anchor='middle' dominant-baseline='middle'>${letter}</text>
+  </svg>`;
+  return 'data:image/svg+xml,' + encodeURIComponent(svg);
+}
+
+/* ------------------------------ Seed data -------------------------------*/
+const CATEGORY_COLORS = {
+  'Lighting': '#4A5D45',
+  'Ceramics': '#A85C32',
+  'Textiles': '#6E5A48',
+  'Furniture': '#3C4A5A',
+  'Kitchen':  '#7A6C53',
+  'Decor':    '#5B4B8A'
+};
+const CATEGORIES = Object.keys(CATEGORY_COLORS);
+
+const SEED_PRODUCTS = [
+  ['Ambre Table Lamp', 'Lighting', 89, 14, 'A soft-glow lamp with a hand-blown amber glass shade and an oak base.'],
+  ['Fern Pendant Light', 'Lighting', 145, 8, 'Three-armed brass pendant with dimmable warm-white bulbs.'],
+  ['Hearth Floor Lamp', 'Lighting', 210, 5, 'Tall linen-shaded floor lamp for reading corners.'],
+  ['Linden Ceramic Vase', 'Ceramics', 42, 22, 'Hand-thrown stoneware vase, matte glaze in warm clay tones.'],
+  ['Terra Dinner Set (4pc)', 'Ceramics', 96, 11, 'Speckled stoneware plates and bowls, dishwasher safe.'],
+  ['Clay Pour-Over Set', 'Ceramics', 58, 17, 'Ceramic pour-over dripper with matching mug.'],
+  ['Wool Throw Blanket', 'Textiles', 78, 19, 'Chunky-knit lambswool throw, woven in small batches.'],
+  ['Moss Linen Cushion', 'Textiles', 34, 30, 'Stonewashed linen cushion cover with a feather insert.'],
+  ['Nordic Wool Rug', 'Textiles', 260, 6, 'Hand-tufted wool rug in an undyed natural palette, 5x7.'],
+  ['Oak Side Table', 'Furniture', 165, 9, 'Solid oak side table with a gently tapered leg.'],
+  ['Alder Reading Chair', 'Furniture', 420, 4, 'Bouclé-upholstered lounge chair on a bent-ply frame.'],
+  ['Birch Bookshelf', 'Furniture', 310, 6, 'Five-shelf birch plywood bookcase, tool-free assembly.'],
+  ['Hearth Cast-Iron Pan', 'Kitchen', 54, 25, 'Pre-seasoned 10" cast-iron skillet, oven safe.'],
+  ['Olive Wood Board Set', 'Kitchen', 46, 21, 'Three nesting olive-wood boards for serving and prep.'],
+  ['Kioko Wall Mirror', 'Decor', 118, 10, 'Round mirror with a slim brushed-brass frame.'],
+  ['Ember Candle Trio', 'Decor', 38, 28, 'Set of three soy candles: cedar, fig, and smoked vetiver.']
+];
+
+function seedIfNeeded() {
+  if (!localStorage.getItem('norr_seeded_v1')) {
+    const products = SEED_PRODUCTS.map(([name, category, price, stock, description]) => ({
+      id: uid(),
+      name, category, price, stock, description,
+      rating: (3.8 + Math.random() * 1.2).toFixed(1),
+      image: placeholderImage(name, CATEGORY_COLORS[category]),
+      createdAt: Date.now()
+    }));
+    localStorage.setItem('norr_products', JSON.stringify(products));
+
+    const adminUser = {
+      id: uid(), name: 'Store Admin', email: '[email protected]',
+      passwordHash: demoHash('admin123'), role: 'admin', createdAt: Date.now(),
+      address: { line1: '', city: '', zip: '', phone: '' }
+    };
+    localStorage.setItem('norr_users', JSON.stringify([adminUser]));
+    localStorage.setItem('norr_orders', JSON.stringify([]));
+    localStorage.setItem('norr_cart', JSON.stringify({ items: [] }));
+    localStorage.setItem('norr_session', 'null');
+    localStorage.setItem('norr_seeded_v1', '1');
+  }
+}
+
+/* --------------------------- "API" data layer ---------------------------
+   Every method here stands in for a network call. Swap the internals for
+   fetch('/api/...') calls against a real backend and nothing above the
+   NorrAPI layer needs to change.                                         */
+const NorrAPI = {
+  // ---- products ----
+  listProducts({ q = '', category = 'All', sort = 'featured' } = {}) {
+    let items = JSON.parse(localStorage.getItem('norr_products') || '[]');
+    if (q) {
+      const needle = q.toLowerCase();
+      items = items.filter(p =>
+        p.name.toLowerCase().includes(needle) ||
+        p.description.toLowerCase().includes(needle) ||
+        p.category.toLowerCase().includes(needle));
+    }
+    if (category && category !== 'All') items = items.filter(p => p.category === category);
+    switch (sort) {
+      case 'price-asc': items.sort((a, b) => a.price - b.price); break;
+      case 'price-desc': items.sort((a, b) => b.price - a.price); break;
+      case 'name-asc': items.sort((a, b) => a.name.localeCompare(b.name)); break;
+      case 'newest': items.sort((a, b) => b.createdAt - a.createdAt); break;
+      default: break; // featured = seed order
+    }
+    return items;
+  },
+  getProduct(id) {
+    return (JSON.parse(localStorage.getItem('norr_products') || '[]')).find(p => p.id === id) || null;
+  },
+  saveProduct(product) {
+    const all = JSON.parse(localStorage.getItem('norr_products') || '[]');
+    if (product.id) {
+      const idx = all.findIndex(p => p.id === product.id);
+      if (idx > -1) all[idx] = { ...all[idx], ...product };
+    } else {
+      product.id = uid();
+      product.createdAt = Date.now();
+      product.image = product.image || placeholderImage(product.name, CATEGORY_COLORS[product.category] || '#555');
+      all.unshift(product);
+    }
+    localStorage.setItem('norr_products', JSON.stringify(all));
+    return product;
+  },
+  deleteProduct(id) {
+    const all = JSON.parse(localStorage.getItem('norr_products') || '[]').filter(p => p.id !== id);
+    localStorage.setItem('norr_products', JSON.stringify(all));
+  },
+  adjustStock(id, delta) {
+    const all = JSON.parse(localStorage.getItem('norr_products') || '[]');
+    const p = all.find(x => x.id === id);
+    if (p) p.stock = Math.max(0, p.stock + delta);
+    localStorage.setItem('norr_products', JSON.stringify(all));
+  },
+
+  // ---- auth / users ----
+  getSession() {
+    const s = JSON.parse(localStorage.getItem('norr_session') || 'null');
+    if (!s) return null;
+    const user = this.getUserById(s.userId);
+    return user;
+  },
+  getUserById(id) {
+    return (JSON.parse(localStorage.getItem('norr_users') || '[]')).find(u => u.id === id) || null;
+  },
+  signup({ name, email, password }) {
+    const users = JSON.parse(localStorage.getItem('norr_users') || '[]');
+    if (users.some(u => u.email.toLowerCase() === email.toLowerCase())) {
+      throw new Error('An account with that email already exists.');
+    }
+    const user = {
+      id: uid(), name, email, passwordHash: demoHash(password),
+      role: 'customer', createdAt: Date.now(), address: { line1: '', city: '', zip: '', phone: '' }
+    };
+    users.push(user);
+    localStorage.setItem('norr_users', JSON.stringify(users));
+    localStorage.setItem('norr_session', JSON.stringify({ userId: user.id }));
+    return user;
+  },
+  login({ email, password }) {
+    const users = JSON.parse(localStorage.getItem('norr_users') || '[]');
+    const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+    if (!user || user.passwordHash !== demoHash(password)) {
+      throw new Error('Incorrect email or password.');
+    }
+    localStorage.setItem('norr_session', JSON.stringify({ userId: user.id }));
+    return user;
+  },
+  logout() {
+    localStorage.setItem('norr_session', 'null');
+  },
+  updateProfile(userId, patch) {
+    const users = JSON.parse(localStorage.getItem('norr_users') || '[]');
+    const idx = users.findIndex(u => u.id === userId);
+    if (idx > -1) users[idx] = { ...users[idx], ...patch };
+    localStorage.setItem('norr_users', JSON.stringify(users));
+    return users[idx];
+  },
+  listUsers() {
+    return JSON.parse(localStorage.getItem('norr_users') || '[]');
+  },
+
+  // ---- cart ----
+  getCart() {
+    return JSON.parse(localStorage.getItem('norr_cart') || '{"items":[]}');
+  },
+  setCart(cart) {
+    localStorage.setItem('norr_cart', JSON.stringify(cart));
+  },
+  addToCart(productId, qty = 1) {
+    const cart = this.getCart();
+    const line = cart.items.find(i => i.productId === productId);
+    if (line) line.qty += qty; else cart.items.push({ productId, qty });
+    this.setCart(cart);
+  },
+  updateCartQty(productId, qty) {
+    const cart = this.getCart();
+    const line = cart.items.find(i => i.productId === productId);
+    if (line) line.qty = qty;
+    cart.items = cart.items.filter(i => i.qty > 0);
+    this.setCart(cart);
+  },
+  removeFromCart(productId) {
+    const cart = this.getCart();
+    cart.items = cart.items.filter(i => i.productId !== productId);
+    this.setCart(cart);
+  },
+  clearCart() { this.setCart({ items: [] }); },
+  cartDetails() {
+    const cart = this.getCart();
+    const lines = cart.items.map(i => {
+      const product = this.getProduct(i.productId);
+      return product ? { product, qty: i.qty, lineTotal: product.price * i.qty } : null;
+    }).filter(Boolean);
+    const subtotal = lines.reduce((s, l) => s + l.lineTotal, 0);
+    const shipping = subtotal > 0 ? (subtotal > 150 ? 0 : 9.5) : 0;
+    const tax = subtotal * 0.0825;
+    return { lines, subtotal, shipping, tax, total: subtotal + shipping + tax };
+  },
+
+  // ---- orders ----
+  placeOrder({ userId, shipping, paymentMethod }) {
+    const details = this.cartDetails();
+    if (details.lines.length === 0) throw new Error('Your cart is empty.');
+    for (const l of details.lines) {
+      if (l.qty > l.product.stock) throw new Error(`"${l.product.name}" only has ${l.product.stock} left in stock.`);
+    }
+    const order = {
+      id: 'NF-' + uid().toUpperCase(),
+      userId,
+      items: details.lines.map(l => ({ productId: l.product.id, name: l.product.name, price: l.product.price, qty: l.qty })),
+      subtotal: details.subtotal, shipping: details.shipping, tax: details.tax, total: details.total,
+      shipping_address: shipping,
+      paymentMethod,
+      status: 'Pending',
+      createdAt: Date.now()
+    };
+    details.lines.forEach(l => this.adjustStock(l.product.id, -l.qty));
+    const orders = JSON.parse(localStorage.getItem('norr_orders') || '[]');
+    orders.unshift(order);
+    localStorage.setItem('norr_orders', JSON.stringify(orders));
+    this.clearCart();
+    return order;
+  },
+  listOrders({ userId = null } = {}) {
+    let orders = JSON.parse(localStorage.getItem('norr_orders') || '[]');
+    if (userId) orders = orders.filter(o => o.userId === userId);
+    return orders;
+  },
+  getOrder(id) {
+    return (JSON.parse(localStorage.getItem('norr_orders') || '[]')).find(o => o.id === id) || null;
+  },
+  updateOrderStatus(id, status) {
+    const orders = JSON.parse(localStorage.getItem('norr_orders') || '[]');
+    const o = orders.find(x => x.id === id);
+    if (o) o.status = status;
+    localStorage.setItem('norr_orders', JSON.stringify(orders));
+  }
+};
+
+/* --------------------------------- Router -------------------------------*/
+let productFilter = { q: '', category: 'All', sort: 'featured' };
+let uiModal = null; // { type: 'product', data: {...} } | null
+
+function parseHash() {
+  const raw = location.hash.replace(/^#/, '') || '/';
+  const [path, query] = raw.split('?');
+  const params = new URLSearchParams(query || '');
+  return { path: path || '/', params };
+}
+
+function navigate(hash) { location.hash = hash; }
+
+function requireAuth(redirectTo) {
+  const user = NorrAPI.getSession();
+  if (!user) { navigate('/login?next=' + encodeURIComponent(redirectTo)); return null; }
+  return user;
+}
+function requireAdmin() {
+  const user = NorrAPI.getSession();
+  if (!user || user.role !== 'admin') { navigate('/'); return null; }
+  return user;
+}
+
+function render() {
+  seedIfNeeded();
+  const { path, params } = parseHash();
+  const user = NorrAPI.getSession();
+  let body = '';
+
+  if (path === '/' ) body = viewHome();
+  else if (path === '/products') body = viewProducts(params);
+  else if (path.startsWith('/product/')) body = viewProductDetail(path.split('/')[2]);
+  else if (path === '/cart') body = viewCart();
+  else if (path === '/checkout') { if (!requireAuth('/checkout')) return; body = viewCheckout(); }
+  else if (path === '/login') body = viewLogin(params);
+  else if (path === '/signup') body = viewSignup();
+  else if (path === '/account') { if (!requireAuth('/account')) return; body = viewAccount(); }
+  else if (path === '/orders') { if (!requireAuth('/orders')) return; body = viewOrders(); }
+  else if (path.startsWith('/order/')) { if (!requireAuth('/orders')) return; body = viewOrderDetail(path.split('/')[2]); }
+  else if (path === '/admin') { if (!requireAdmin()) return; body = viewAdminDashboard(); }
+  else if (path === '/admin/products') { if (!requireAdmin()) return; body = viewAdminProducts(); }
+  else if (path === '/admin/orders') { if (!requireAdmin()) return; body = viewAdminOrders(); }
+  else body = view404();
+
+  $('#app').innerHTML = layout(body, user, path);
+  window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+  bindSearchBox();
+}
+
+/* --------------------------------- Layout -------------------------------*/
+function layout(body, user, path) {
+  const cart = NorrAPI.getCart();
+  const cartCount = cart.items.reduce((s, i) => s + i.qty, 0);
+  const isAdminSection = path.startsWith('/admin');
+
+  return `
+  <div class="shell">
+    <header class="site-header">
+      <div class="header-row">
+        <button class="icon-btn only-mobile" data-action="toggle-nav" aria-label="Menu">${icon('menu')}</button>
+        <a href="#/" class="wordmark">Norr<span>&amp;</span>Field</a>
+        <nav class="main-nav" id="main-nav">
+          <a href="#/" class="${path === '/' ? 'active' : ''}">Home</a>
+          <a href="#/products" class="${path === '/products' ? 'active' : ''}">Shop</a>
+          ${CATEGORIES.slice(0, 4).map(c => `<a href="#/products?category=${encodeURIComponent(c)}">${c}</a>`).join('')}
+        </nav>
+        <div class="header-search only-desktop">
+          <input id="global-search" type="search" placeholder="Search products…" value="${escapeHtml(productFilter.q)}" />
+        </div>
+        <div class="header-actions">
+          <a href="#/cart" class="icon-btn cart-btn" aria-label="Cart">${icon('bag')}${cartCount ? `<span class="badge">${cartCount}</span>` : ''}</a>
+          <div class="account-menu">
+            <button class="icon-btn" data-action="toggle-account" aria-label="Account">${icon('user')}</button>
+            <div class="dropdown" id="account-dropdown">
+              ${user ? `
+                <div class="dropdown-head">Signed in as<br><strong>${escapeHtml(user.name)}</strong></div>
+                <a href="#/account">My profile</a>
+                <a href="#/orders">Order history</a>
+                ${user.role === 'admin' ? `<a href="#/admin">Admin dashboard</a>` : ''}
+                <button data-action="logout">Log out</button>
+              ` : `
+                <a href="#/login">Log in</a>
+                <a href="#/signup">Create account</a>
+              `}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-search only-mobile-block">
+        <input id="global-search-mobile" type="search" placeholder="Search products…" value="${escapeHtml(productFilter.q)}" />
+      </div>
+    </header>
+
+    ${isAdminSection ? adminSubnav(path) : ''}
+
+    <main class="site-main">${body}</main>
+
+    <footer class="site-footer">
+      <div class="footer-grid">
+        <div>
+          <div class="wordmark small">Norr<span>&amp;</span>Field</div>
+          <p class="muted">Considered goods for a slower home. Demo storefront — no real orders are shipped and no real payments are processed.</p>
+        </div>
+        <div>
+          <h4>Shop</h4>
+          ${CATEGORIES.map(c => `<a href="#/products?category=${encodeURIComponent(c)}">${c}</a>`).join('')}
+        </div>
+        <div>
+          <h4>Account</h4>
+          <a href="#/login">Log in</a>
+          <a href="#/orders">Order history</a>
+          <a href="#/admin">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom muted">This is a self-contained demo. Data lives only in this browser.</div>
+    </footer>
+  </div>
+
+  <div id="toast-host" class="toast-host"></div>
+  ${uiModal ? renderModal() : ''}
+  `;
+}
+
+function adminSubnav(path) {
+  return `<div class="admin-subnav">
+    <a href="#/admin" class="${path === '/admin' ? 'active' : ''}">Overview</a>
+    <a href="#/admin/products" class="${path === '/admin/products' ? 'active' : ''}">Products</a>
+    <a href="#/admin/orders" class="${path === '/admin/orders' ? 'active' : ''}">Orders</a>
+    <a href="#/" class="back-to-store">← Back to store</a>
+  </div>`;
+}
+
+function icon(name) {
+  const icons = {
+    bag: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>',
+    user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 19.5c1.5-3.6 4.4-5.5 7.5-5.5s6 1.9 7.5 5.5"/></svg>',
+    menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6h16M4 12h16M4 18h16"/></svg>',
+    search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-3.2-3.2"/></svg>',
+    trash: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m-8 0 1 13h6l1-13"/></svg>',
+    edit: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20h4L18 10l-4-4L4 16v4Z"/></svg>',
+    star: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.5 15 9l7 .9-5.2 4.7L18.2 21 12 17.3 5.8 21l1.4-6.4L2 9.9 9 9l3-6.5Z"/></svg>'
+  };
+  return `<span class="ic">${icons[name] || ''}</span>`;
+}
+
+/* ------------------------------- Views ----------------------------------*/
+function productCard(p) {
+  const outOfStock = p.stock <= 0;
+  return `
+  <article class="product-card">
+    <a href="#/product/${p.id}" class="product-media">
+      <img src="${p.image}" alt="${escapeHtml(p.name)}" loading="lazy" />
+      ${outOfStock ? '<span class="tag tag-out">Out of stock</span>' : ''}
+    </a>
+    <div class="product-info">
+      <span class="eyebrow-cat">${escapeHtml(p.category)}</span>
+      <a href="#/product/${p.id}" class="product-name">${escapeHtml(p.name)}</a>
+      <div class="product-row">
+        <span class="price">${fmt(p.price)}</span>
+        <button class="btn btn-small" data-action="add-to-cart" data-id="${p.id}" ${outOfStock ? 'disabled' : ''}>
+          ${outOfStock ? 'Sold out' : 'Add to cart'}
+        </button>
+      </div>
+    </div>
+  </article>`;
+}
+
+function viewHome() {
+  const featured = NorrAPI.listProducts({ sort: 'featured' }).slice(0, 4);
+  const newest = NorrAPI.listProducts({ sort: 'newest' }).slice(0, 4);
+  return `
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow-cat">Autumn collection</p>
+        <h1>Furnish the pauses<br>in an ordinary week.</h1>
+        <p class="hero-sub">Small-batch lighting, ceramics and textiles, chosen for rooms you actually live in.</p>
+        <div class="hero-actions">
+          <a href="#/products" class="btn btn-primary">Shop all products</a>
+          <a href="#/products?category=Lighting" class="btn btn-ghost">Explore lighting</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <img src="${placeholderImage('N', '#2F4538')}" alt="" />
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Shop by category</h2>
+      </div>
+      <div class="category-grid">
+        ${CATEGORIES.map(c => `
+          <a href="#/products?category=${encodeURIComponent(c)}" class="category-tile" style="--tile:${CATEGORY_COLORS[c]}">
+            <span>${c}</span>
+          </a>`).join('')}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Featured pieces</h2>
+        <a href="#/products" class="link">View all →</a>
+      </div>
+      <div class="product-grid">${featured.map(productCard).join('')}</div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>New this month</h2>
+        <a href="#/products?sort=newest" class="link">View all →</a>
+      </div>
+      <div class="product-grid">${newest.map(productCard).join('')}</div>
+    </section>
+  `;
+}
+
+function viewProducts(params) {
+  if (params.get('category')) productFilter.category = params.get('category');
+  if (params.get('sort')) productFilter.sort = params.get('sort');
+  const items = NorrAPI.listProducts(productFilter);
+  return `
+    <section class="section products-page">
+      <div class="products-toolbar">
+        <div class="chip-row">
+          <button class="chip ${productFilter.category === 'All' ? 'active' : ''}" data-action="filter-cat" data-cat="All">All</button>
+          ${CATEGORIES.map(c => `<button class="chip ${productFilter.category === c ? 'active' : ''}" data-action="filter-cat" data-cat="${c}">${c}</button>`).join('')}
+        </div>
+        <select id="sort-select" class="select">
+          <option value="featured" ${productFilter.sort === 'featured' ? 'selected' : ''}>Featured</option>
+          <option value="newest" ${productFilter.sort === 'newest' ? 'selected' : ''}>Newest</option>
+          <option value="price-asc" ${productFilter.sort === 'price-asc' ? 'selected' : ''}>Price: low to high</option>
+          <option value="price-desc" ${productFilter.sort === 'price-desc' ? 'selected' : ''}>Price: high to low</option>
+          <option value="name-asc" ${productFilter.sort === 'name-asc' ? 'selected' : ''}>Name: A–Z</option>
+        </select>
+      </div>
+      <p class="muted result-count">${items.length} product${items.length === 1 ? '' : 's'}${productFilter.q ? ` for “${escapeHtml(productFilter.q)}”` : ''}</p>
+      <div id="product-grid" class="product-grid">
+        ${items.length ? items.map(productCard).join('') : emptyState('No products match your filters.', 'Try a different search or category.')}
+      </div>
+    </section>
+  `;
+}
+
+function viewProductDetail(id) {
+  const p = NorrAPI.getProduct(id);
+  if (!p) return view404();
+  const related = NorrAPI.listProducts({ category: p.category }).filter(x => x.id !== p.id).slice(0, 4);
+  return `
+    <section class="section product-detail">
+      <a href="#/products" class="link back-link">← Back to shop</a>
+      <div class="detail-grid">
+        <div class="detail-media"><img src="${p.image}" alt="${escapeHtml(p.name)}" /></div>
+        <div class="detail-info">
+          <span class="eyebrow-cat">${escapeHtml(p.category)}</span>
+          <h1>${escapeHtml(p.name)}</h1>
+          <div class="rating">${icon('star')} ${p.rating} <span class="muted">(demo rating)</span></div>
+          <p class="detail-price">${fmt(p.price)}</p>
+          <p class="detail-desc">${escapeHtml(p.description)}</p>
+          <p class="stock-line ${p.stock <= 0 ? 'stock-out' : p.stock <= 5 ? 'stock-low' : ''}">
+            ${p.stock <= 0 ? 'Out of stock' : p.stock <= 5 ? `Only ${p.stock} left` : 'In stock'}
+          </p>
+          <form data-form="add-to-cart-detail" class="qty-form">
+            <input type="hidden" name="productId" value="${p.id}" />
+            <label class="qty-picker">
+              <button type="button" data-action="qty-step" data-dir="-1">−</button>
+              <input type="number" name="qty" value="1" min="1" max="${Math.max(1, p.stock)}" ${p.stock <= 0 ? 'disabled' : ''} />
+              <button type="button" data-action="qty-step" data-dir="1">+</button>
+            </label>
+            <button class="btn btn-primary" type="submit" ${p.stock <= 0 ? 'disabled' : ''}>Add to cart</button>
+          </form>
+        </div>
+      </div>
+      ${related.length ? `
+        <div class="section-head" style="margin-top:3rem"><h2>You might also like</h2></div>
+        <div class="product-grid">${related.map(productCard).join('')}</div>
+      ` : ''}
+    </section>
+  `;
+}
+
+function viewCart() {
+  const { lines, subtotal, shipping, tax, total } = NorrAPI.cartDetails();
+  if (!lines.length) {
+    return `<section class="section">${emptyState('Your cart is empty.', 'Browse the shop to find something for the house.', '#/products', 'Shop products')}</section>`;
+  }
+  return `
+    <section class="section cart-page">
+      <h1>Your cart</h1>
+      <div class="cart-grid">
+        <div class="cart-lines">
+          ${lines.map(l => `
+            <div class="cart-line">
+              <img src="${l.product.image}" alt="" />
+              <div class="cart-line-info">
+                <a href="#/product/${l.product.id}" class="product-name">${escapeHtml(l.product.name)}</a>
+                <span class="muted">${escapeHtml(l.product.category)} · ${fmt(l.product.price)} each</span>
+                <label class="qty-picker small">
+                  <button type="button" data-action="cart-qty" data-id="${l.product.id}" data-dir="-1">−</button>
+                  <span>${l.qty}</span>
+                  <button type="button" data-action="cart-qty" data-id="${l.product.id}" data-dir="1">+</button>
+                </label>
+              </div>
+              <div class="cart-line-end">
+                <span class="price">${fmt(l.lineTotal)}</span>
+                <button class="link danger" data-action="remove-from-cart" data-id="${l.product.id}">Remove</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <aside class="order-summary">
+          <h2>Order summary</h2>
+          <div class="summary-row"><span>Subtotal</span><span>${fmt(subtotal)}</span></div>
+          <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : fmt(shipping)}</span></div>
+          <div class="summary-row"><span>Estimated tax</span><span>${fmt(tax)}</span></div>
+          <div class="summary-row total"><span>Total</span><span>${fmt(total)}</span></div>
+          <a href="#/checkout" class="btn btn-primary btn-block">Checkout</a>
+          <p class="muted small-print">Free shipping on orders over $150. This is a demo — no payment is charged.</p>
+        </aside>
+      </div>
+    </section>
+  `;
+}
+
+function viewCheckout() {
+  const { lines, subtotal, shipping, tax, total } = NorrAPI.cartDetails();
+  const user = NorrAPI.getSession();
+  if (!lines.length) {
+    return `<section class="section">${emptyState('Your cart is empty.', 'Add a few things before checking out.', '#/products', 'Shop products')}</section>`;
+  }
+  const addr = user.address || {};
+  return `
+    <section class="section checkout-page">
+      <h1>Checkout</h1>
+      <form data-form="checkout" class="checkout-grid">
+        <div class="checkout-form">
+          <h2>Shipping details</h2>
+          <label>Full name<input name="name" required value="${escapeHtml(user.name || '')}" /></label>
+          <label>Address<input name="line1" required value="${escapeHtml(addr.line1 || '')}" /></label>
+          <div class="field-row">
+            <label>City<input name="city" required value="${escapeHtml(addr.city || '')}" /></label>
+            <label>ZIP / Postal code<input name="zip" required value="${escapeHtml(addr.zip || '')}" /></label>
+          </div>
+          <label>Phone<input name="phone" required value="${escapeHtml(addr.phone || '')}" /></label>
+
+          <h2>Payment method</h2>
+          <p class="muted small-print" style="margin-top:-.4rem">Demo only — no real payment integration. Nothing is charged.</p>
+          <label class="radio-row"><input type="radio" name="paymentMethod" value="Cash on Delivery" checked /> Cash on delivery</label>
+          <label class="radio-row"><input type="radio" name="paymentMethod" value="Demo Card" /> Card ending 4242 (simulated)</label>
+
+          <button class="btn btn-primary btn-block" type="submit">Place order — ${fmt(total)}</button>
+        </div>
+        <aside class="order-summary">
+          <h2>Order summary</h2>
+          ${lines.map(l => `<div class="summary-row"><span>${escapeHtml(l.product.name)} × ${l.qty}</span><span>${fmt(l.lineTotal)}</span></div>`).join('')}
+          <hr />
+          <div class="summary-row"><span>Subtotal</span><span>${fmt(subtotal)}</span></div>
+          <div class="summary-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : fmt(shipping)}</span></div>
+          <div class="summary-row"><span>Estimated tax</span><span>${fmt(tax)}</span></div>
+          <div class="summary-row total"><span>Total</span><span>${fmt(total)}</span></div>
+        </aside>
+      </form>
+    </section>
+  `;
+}
+
+function viewLogin(params) {
+  const next = params.get('next') || '/';
+  return `
+    <section class="section auth-page">
+      <div class="auth-card">
+        <h1>Log in</h1>
+        <p class="muted">Demo admin account: <strong>[email protected]</strong> / <strong>admin123</strong></p>
+        <form data-form="login" data-next="${escapeHtml(next)}">
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Password<input type="password" name="password" required /></label>
+          <button class="btn btn-primary btn-block" type="submit">Log in</button>
+        </form>
+        <p class="muted">No account? <a href="#/signup">Create one</a></p>
+      </div>
+    </section>
+  `;
+}
+
+function viewSignup() {
+  return `
+    <section class="section auth-page">
+      <div class="auth-card">
+        <h1>Create your account</h1>
+        <form data-form="signup">
+          <label>Full name<input name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Password<input type="password" name="password" required minlength="4" /></label>
+          <label>Confirm password<input type="password" name="confirm" required minlength="4" /></label>
+          <button class="btn btn-primary btn-block" type="submit">Create account</button>
+        </form>
+        <p class="muted">Already have an account? <a href="#/login">Log in</a></p>
+      </div>
+    </section>
+  `;
+}
+
+function viewAccount() {
+  const user = NorrAPI.getSession();
+  const addr = user.address || {};
+  return `
+    <section class="section auth-page">
+      <div class="auth-card wide">
+        <h1>My profile</h1>
+        <form data-form="account">
+          <label>Full name<input name="name" required value="${escapeHtml(user.name)}" /></label>
+          <label>Email<input type="email" value="${escapeHtml(user.email)}" disabled /></label>
+          <div class="field-row">
+            <label>Address<input name="line1" value="${escapeHtml(addr.line1 || '')}" /></label>
+            <label>City<input name="city" value="${escapeHtml(addr.city || '')}" /></label>
+          </div>
+          <div class="field-row">
+            <label>ZIP<input name="zip" value="${escapeHtml(addr.zip || '')}" /></label>
+            <label>Phone<input name="phone" value="${escapeHtml(addr.phone || '')}" /></label>
+          </div>
+          <button class="btn btn-primary" type="submit">Save changes</button>
+        </form>
+      </div>
+    </section>
+  `;
+}
+
+function viewOrders() {
+  const user = NorrAPI.getSession();
+  const orders = NorrAPI.listOrders({ userId: user.id });
+  if (!orders.length) {
+    return `<section class="section">${emptyState('No orders yet.', 'Your placed orders will show up here.', '#/products', 'Start shopping')}</section>`;
+  }
+  return `
+    <section class="section">
+      <h1>Order history</h1>
+      <div class="order-list">
+        ${orders.map(o => `
+          <a href="#/order/${o.id}" class="order-row">
+            <div>
+              <strong>${o.id}</strong>
+              <div class="muted">${new Date(o.createdAt).toLocaleDateString()} · ${o.items.length} item${o.items.length === 1 ? '' : 's'}</div>
+            </div>
+            <span class="status-pill status-${slug(o.status)}">${o.status}</span>
+            <span class="price">${fmt(o.total)}</span>
+          </a>
+        `).join('')}
+      </div>
+    </section>
+  `;
+}
+
+function viewOrderDetail(id) {
+  const order = NorrAPI.getOrder(id);
+  const user = NorrAPI.getSession();
+  if (!order || (order.userId !== user.id && user.role !== 'admin')) return view404();
+  return `
+    <section class="section">
+      <a href="#/orders" class="link back-link">← Back to orders</a>
+      <div class="order-detail-card">
+        <div class="order-detail-head">
+          <div>
+            <h1>${order.id}</h1>
+            <p class="muted">Placed ${new Date(order.createdAt).toLocaleString()}</p>
+          </div>
+          <span class="status-pill status-${slug(order.status)}">${order.status}</span>
+        </div>
+        <div class="order-items">
+          ${order.items.map(i => `<div class="summary-row"><span>${escapeHtml(i.name)} × ${i.qty}</span><span>${fmt(i.price * i.qty)}</span></div>`).join('')}
+        </div>
+        <hr />
+        <div class="summary-row"><span>Subtotal</span><span>${fmt(order.subtotal)}</span></div>
+        <div class="summary-row"><span>Shipping</span><span>${order.shipping === 0 ? 'Free' : fmt(order.shipping)}</span></div>
+        <div class="summary-row"><span>Tax</span><span>${fmt(order.tax)}</span></div>
+        <div class="summary-row total"><span>Total</span><span>${fmt(order.total)}</span></div>
+        <h3>Shipping to</h3>
+        <p class="muted">${escapeHtml(order.shipping_address.name)}<br>${escapeHtml(order.shipping_address.line1)}<br>${escapeHtml(order.shipping_address.city)} ${escapeHtml(order.shipping_address.zip)}<br>${escapeHtml(order.shipping_address.phone)}</p>
+        <p class="muted">Payment method: ${escapeHtml(order.paymentMethod)}</p>
+      </div>
+    </section>
+  `;
+}
+
+/* ------------------------------ Admin views ------------------------------*/
+function viewAdminDashboard() {
+  const products = NorrAPI.listProducts();
+  const orders = NorrAPI.listOrders();
+  const users = NorrAPI.listUsers().filter(u => u.role === 'customer');
+  const revenue = orders.reduce((s, o) => s + o.total, 0);
+  const lowStock = products.filter(p => p.stock <= 5);
+  return `
+    <section class="section">
+      <h1>Dashboard</h1>
+      <div class="stat-grid">
+        <div class="stat-card"><span class="stat-label">Total products</span><span class="stat-value">${products.length}</span></div>
+        <div class="stat-card"><span class="stat-label">Total orders</span><span class="stat-value">${orders.length}</span></div>
+        <div class="stat-card"><span class="stat-label">Revenue (demo)</span><span class="stat-value">${fmt(revenue)}</span></div>
+        <div class="stat-card"><span class="stat-label">Customers</span><span class="stat-value">${users.length}</span></div>
+      </div>
+
+      <div class="section-head" style="margin-top:2.5rem"><h2>Recent orders</h2><a href="#/admin/orders" class="link">Manage orders →</a></div>
+      <div class="order-list">
+        ${orders.slice(0, 5).map(o => `
+          <a href="#/order/${o.id}" class="order-row">
+            <div><strong>${o.id}</strong><div class="muted">${new Date(o.createdAt).toLocaleDateString()}</div></div>
+            <span class="status-pill status-${slug(o.status)}">${o.status}</span>
+            <span class="price">${fmt(o.total)}</span>
+          </a>`).join('') || '<p class="muted">No orders yet.</p>'}
+      </div>
+
+      ${lowStock.length ? `
+        <div class="section-head" style="margin-top:2.5rem"><h2>Low stock</h2><a href="#/admin/products" class="link">Manage products →</a></div>
+        <div class="order-list">
+          ${lowStock.map(p => `<div class="order-row"><div><strong>${escapeHtml(p.name)}</strong></div><span class="status-pill status-cancelled">${p.stock} left</span><span class="price">${fmt(p.price)}</span></div>`).join('')}
+        </div>` : ''}
+    </section>
+  `;
+}
+
+function viewAdminProducts() {
+  const products = NorrAPI.listProducts();
+  return `
+    <section class="section">
+      <div class="section-head">
+        <h1>Products</h1>
+        <button class="btn btn-primary" data-action="open-product-modal">Add product</button>
+      </div>
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead><tr><th></th><th>Name</th><th>Category</th><th>Price</th><th>Stock</th><th></th></tr></thead>
+          <tbody>
+            ${products.map(p => `
+              <tr>
+                <td><img class="thumb" src="${p.image}" alt="" /></td>
+                <td>${escapeHtml(p.name)}</td>
+                <td>${escapeHtml(p.category)}</td>
+                <td>${fmt(p.price)}</td>
+                <td class="${p.stock <= 5 ? 'stock-low' : ''}">${p.stock}</td>
+                <td class="row-actions">
+                  <button class="icon-btn" data-action="open-product-modal" data-id="${p.id}" title="Edit">${icon('edit')}</button>
+                  <button class="icon-btn danger" data-action="delete-product" data-id="${p.id}" title="Delete">${icon('trash')}</button>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function viewAdminOrders() {
+  const orders = NorrAPI.listOrders();
+  const statuses = ['Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled'];
+  return `
+    <section class="section">
+      <h1>Orders</h1>
+      <div class="table-wrap">
+        <table class="admin-table">
+          <thead><tr><th>Order</th><th>Date</th><th>Customer</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody>
+            ${orders.map(o => {
+              const buyer = NorrAPI.getUserById(o.userId);
+              return `<tr>
+                <td><a href="#/order/${o.id}" class="link">${o.id}</a></td>
+                <td>${new Date(o.createdAt).toLocaleDateString()}</td>
+                <td>${buyer ? escapeHtml(buyer.name) : 'Guest'}</td>
+                <td>${fmt(o.total)}</td>
+                <td>
+                  <select class="select select-small" data-action="order-status" data-id="${o.id}">
+                    ${statuses.map(s => `<option value="${s}" ${o.status === s ? 'selected' : ''}>${s}</option>`).join('')}
+                  </select>
+                </td>
+              </tr>`;
+            }).join('') || `<tr><td colspan="5" class="muted">No orders yet.</td></tr>`}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+
+function renderModal() {
+  if (uiModal.type !== 'product') return '';
+  const p = uiModal.data || { name: '', category: CATEGORIES[0], price: '', stock: '', description: '' };
+  return `
+  <div class="modal-backdrop" data-action="close-modal">
+    <div class="modal-card" data-stop-close>
+      <h2>${p.id ? 'Edit product' : 'Add product'}</h2>
+      <form data-form="product-form">
+        <input type="hidden" name="id" value="${p.id || ''}" />
+        <label>Name<input name="name" required value="${escapeHtml(p.name)}" /></label>
+        <div class="field-row">
+          <label>Category
+            <select name="category">${CATEGORIES.map(c => `<option ${p.category === c ? 'selected' : ''}>${c}</option>`).join('')}</select>
+          </label>
+          <label>Price (USD)<input name="price" type="number" min="0" step="0.01" required value="${p.price}" /></label>
+        </div>
+        <label>Stock<input name="stock" type="number" min="0" step="1" required value="${p.stock}" /></label>
+        <label>Description<textarea name="description" rows="3">${escapeHtml(p.description || '')}</textarea></label>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" data-action="close-modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">${p.id ? 'Save changes' : 'Add product'}</button>
+        </div>
+      </form>
+    </div>
+  </div>`;
+}
+
+function emptyState(title, sub, href, cta) {
+  return `<div class="empty-state">
+    <h3>${title}</h3>
+    <p class="muted">${sub}</p>
+    ${href ? `<a href="${href}" class="btn btn-primary">${cta}</a>` : ''}
+  </div>`;
+}
+function view404() {
+  return `<section class="section">${emptyState('Page not found.', 'That page does not exist.', '#/', 'Back home')}</section>`;
+}
+function slug(s) { return String(s).toLowerCase().replace(/\s+/g, '-'); }
+
+/* --------------------------- Event handling ------------------------------*/
+function bindSearchBox() {
+  ['global-search', 'global-search-mobile'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', debounce((e) => {
+      productFilter.q = e.target.value;
+      if (parseHash().path !== '/products') navigate('/products');
+      else render();
+    }, 250));
+  });
+  const sortSel = document.getElementById('sort-select');
+  if (sortSel) sortSel.addEventListener('change', (e) => { productFilter.sort = e.target.value; render(); });
+}
+function debounce(fn, ms) {
+  let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+}
+
+document.addEventListener('click', (e) => {
+  const dropdown = $('#account-dropdown');
+  const toggle = e.target.closest('[data-action="toggle-account"]');
+  if (toggle) { dropdown?.classList.toggle('open'); return; }
+  if (dropdown && !e.target.closest('.account-menu')) dropdown.classList.remove('open');
+
+  const navToggle = e.target.closest('[data-action="toggle-nav"]');
+  if (navToggle) { $('#main-nav')?.classList.toggle('open'); return; }
+
+  if (e.target.closest('[data-stop-close]')) {
+    if (!e.target.closest('[data-action]')) return; // allow clicks inside modal to still act below
+  }
+  if (e.target.matches('.modal-backdrop')) { uiModal = null; render(); return; }
+
+  const actionEl = e.target.closest('[data-action]');
+  if (!actionEl) return;
+  const action = actionEl.dataset.action;
+
+  switch (action) {
+    case 'add-to-cart': {
+      NorrAPI.addToCart(actionEl.dataset.id, 1);
+      toast('Added to cart', 'success');
+      render();
+      break;
+    }
+    case 'remove-from-cart': {
+      NorrAPI.removeFromCart(actionEl.dataset.id);
+      render();
+      break;
+    }
+    case 'cart-qty': {
+      const cart = NorrAPI.getCart();
+      const line = cart.items.find(i => i.productId === actionEl.dataset.id);
+      const dir = Number(actionEl.dataset.dir);
+      if (line) NorrAPI.updateCartQty(actionEl.dataset.id, line.qty + dir);
+      render();
+      break;
+    }
+    case 'qty-step': {
+      const input = actionEl.closest('.qty-picker').querySelector('input[name="qty"]');
+      const dir = Number(actionEl.dataset.dir);
+      const max = Number(input.max) || 999;
+      input.value = Math.max(1, Math.min(max, Number(input.value) + dir));
+      break;
+    }
+    case 'filter-cat': {
+      productFilter.category = actionEl.dataset.cat;
+      render();
+      break;
+    }
+    case 'logout': {
+      NorrAPI.logout();
+      toast('Logged out');
+      navigate('/');
+      break;
+    }
+    case 'delete-product': {
+      if (confirm('Delete this product? This cannot be undone.')) {
+        NorrAPI.deleteProduct(actionEl.dataset.id);
+        toast('Product deleted');
+        render();
+      }
+      break;
+    }
+    case 'open-product-modal': {
+      const id = actionEl.dataset.id;
+      uiModal = { type: 'product', data: id ? NorrAPI.getProduct(id) : null };
+      render();
+      break;
+    }
+    case 'close-modal': {
+      uiModal = null;
+      render();
+      break;
+    }
+    default: break;
+  }
+});
+
+document.addEventListener('change', (e) => {
+  if (e.target.matches('[data-action="order-status"]')) {
+    NorrAPI.updateOrderStatus(e.target.dataset.id, e.target.value);
+    toast('Order status updated', 'success');
+  }
+});
+
+document.addEventListener('submit', (e) => {
+  const form = e.target.closest('form[data-form]');
+  if (!form) return;
+  e.preventDefault();
+  const type = form.dataset.form;
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  try {
+    if (type === 'login') {
+      NorrAPI.login(data);
+      toast('Welcome back!', 'success');
+      navigate(form.dataset.next || '/');
+    } else if (type === 'signup') {
+      if (data.password !== data.confirm) throw new Error('Passwords do not match.');
+      NorrAPI.signup(data);
+      toast('Account created', 'success');
+      navigate('/');
+    } else if (type === 'account') {
+      const user = NorrAPI.getSession();
+      NorrAPI.updateProfile(user.id, { name: data.name, address: { line1: data.line1, city: data.city, zip: data.zip, phone: data.phone } });
+      toast('Profile saved', 'success');
+      render();
+    } else if (type === 'add-to-cart-detail') {
+      NorrAPI.addToCart(data.productId, Number(data.qty || 1));
+      toast('Added to cart', 'success');
+      render();
+    } else if (type === 'checkout') {
+      const user = NorrAPI.getSession();
+      const order = NorrAPI.placeOrder({
+        userId: user.id,
+        shipping: { name: data.name, line1: data.line1, city: data.city, zip: data.zip, phone: data.phone },
+        paymentMethod: data.paymentMethod
+      });
+      NorrAPI.updateProfile(user.id, { address: { line1: data.line1, city: data.city, zip: data.zip, phone: data.phone } });
+      toast('Order placed!', 'success');
+      navigate('/order/' + order.id);
+    } else if (type === 'product-form') {
+      NorrAPI.saveProduct({
+        id: data.id || null,
+        name: data.name,
+        category: data.category,
+        price: Number(data.price),
+        stock: Number(data.stock),
+        description: data.description
+      });
+      uiModal = null;
+      toast('Product saved', 'success');
+      render();
+    }
+  } catch (err) {
+    toast(err.message || 'Something went wrong', 'error');
+  }
+});
+
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', () => { seedIfNeeded(); render(); });
+
+</script>
+</body>
+</html>
